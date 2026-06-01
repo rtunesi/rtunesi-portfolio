@@ -1,0 +1,696 @@
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --black: #0a0a0a;
+    --gray-950: #111111;
+    --gray-900: #1a1a1a;
+    --gray-800: #252525;
+    --gray-700: #333333;
+    --gray-600: #4a4a4a;
+    --gray-500: #6e6e6e;
+    --gray-400: #9a9a9a;
+    --gray-300: #c4c4c4;
+    --gray-200: #dedede;
+    --gray-100: #efefef;
+    --gray-50: #f7f7f7;
+    --white: #ffffff;
+    --accent: #ffffff;
+    --nav-h: 64px;
+  }
+ 
+  html { scroll-behavior: smooth; }
+ 
+    body {
+    background: var(--black);
+    color: var(--gray-200);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    background: #111111;
+    border-bottom: 1px solid var(--gray-800);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    z-index: 1000;
+  }
+ 
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+ 
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+ 
+  .nav-links a {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    color: var(--gray-400);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+  }
+ 
+  .nav-links a:hover { color: var(--white); background: var(--gray-900); }
+ 
+  .nav-links .cv-btn {
+    color: var(--white);
+    border: 1px solid var(--gray-700);
+    background: transparent;
+    margin-left: 0.5rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+ 
+  .nav-links .cv-btn:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+ 
+  /* ── SECTIONS ── */
+  section { padding: 7rem 0 5rem; }
+  section:first-of-type { padding-top: 128px; }
+ 
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+ 
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+ 
+  .section-label::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 3rem;
+    background: var(--gray-700);
+  }
+ 
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--nav-h);
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--gray-900) 1px, transparent 1px),
+      linear-gradient(90deg, var(--gray-900) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 80%);
+    opacity: 0.4;
+  }
+ 
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+ 
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gray-900);
+    border: 1px solid var(--gray-800);
+    border-radius: 100px;
+    padding: 0.3rem 0.9rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gray-400);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+  }
+ 
+ 
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 5rem;
+    line-height: 1.0;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+ 
+  .hero-name em {
+    font-style: italic;
+    color: var(--gray-400);
+  }
+ 
+  .hero-bio {
+    font-size: 1.1rem;
+    color: var(--gray-400);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+ 
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+ 
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.4rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+ 
+  .btn-primary { background: var(--white); color: var(--black); }
+  .btn-primary:hover { background: var(--gray-200); transform: translateY(-1px); }
+ 
+  .btn-ghost { background: transparent; color: var(--gray-300); border: 1px solid var(--gray-700); }
+  .btn-ghost:hover { background: var(--gray-900); color: var(--white); border-color: var(--gray-500); transform: translateY(-1px); }
+ 
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gray-800) 20%, var(--gray-800) 80%, transparent);
+    margin: 0;
+  }
+ 
+  /* ── ABOUT ── */
+  #about .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 2.5rem;
+  }
+ 
+  .about-text h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: var(--white);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+ 
+  .about-text p {
+    color: var(--gray-400);
+    font-weight: 300;
+    margin-bottom: 1rem;
+    font-size: 0.975rem;
+  }
+ 
+  .interests-list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+ 
+  .interest-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--gray-950);
+    border: 1px solid var(--gray-800);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--gray-300);
+    transition: border-color 0.2s, color 0.2s;
+  }
+ 
+  .interest-item:hover { border-color: var(--gray-600); color: var(--white); }
+ 
+  .interest-icon {
+    font-size: 1.1rem;
+    width: 24px;
+    text-align: center;
+  }
+ 
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+  }
+ 
+  .skill-tag {
+    padding: 0.3rem 0.75rem;
+    background: var(--gray-900);
+    border: 1px solid var(--gray-800);
+    border-radius: 100px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gray-400);
+    letter-spacing: 0.04em;
+  }
+ 
+  /* ── GITHUB ── */
+  #github { background: var(--gray-950); }
+ 
+  .github-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+ 
+  .github-title h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+ 
+  .github-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--gray-500);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gray-700);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+ 
+  .github-link:hover { color: var(--white); border-color: var(--white); }
+ 
+  .repo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--gray-800);
+    border: 1px solid var(--gray-800);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+  }
+ 
+  .repo-card {
+    background: var(--gray-950);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: background 0.2s;
+  }
+ 
+  .repo-card:hover { background: var(--gray-900); }
+ 
+  .repo-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+ 
+  .repo-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--white);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+ 
+  .repo-name:hover { color: var(--gray-300); }
+ 
+  .repo-visibility {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--gray-700);
+    border-radius: 100px;
+    color: var(--gray-500);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+ 
+  .repo-desc {
+    font-size: 0.82rem;
+    color: var(--gray-500);
+    line-height: 1.5;
+    flex: 1;
+  }
+ 
+  .repo-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+ 
+  .repo-lang {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    color: var(--gray-500);
+  }
+ 
+  .lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+ 
+  .repo-stars {
+    font-size: 0.78rem;
+    color: var(--gray-500);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+ 
+  /* Commits */
+  .commits-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-600);
+    margin-bottom: 1rem;
+  }
+ 
+  .commit-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--gray-800);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+ 
+  .commit-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--gray-800);
+    background: var(--gray-950);
+    transition: background 0.2s;
+  }
+ 
+  .commit-item:last-child { border-bottom: none; }
+  .commit-item:hover { background: var(--gray-900); }
+ 
+  .commit-msg {
+    font-size: 0.875rem;
+    color: var(--gray-300);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+ 
+  .commit-repo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gray-600);
+    display: block;
+    margin-top: 0.1rem;
+  }
+ 
+  .commit-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gray-600);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+ 
+  /* ── PROJECTS ── */
+  #projects .projects-intro {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+ 
+  #projects .projects-intro h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+ 
+  .project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--gray-800);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s;
+  }
+ 
+  .project-card:hover { border-color: var(--gray-600); }
+ 
+  .project-visual {
+    background: var(--gray-900);
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .project-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--gray-800) 1px, transparent 1px),
+      linear-gradient(90deg, var(--gray-800) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.4;
+  }
+ 
+  .project-visual span { position: relative; z-index: 1; }
+ 
+  .project-info {
+    padding: 1.75rem;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+ 
+  .project-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--gray-600);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+ 
+  .project-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+ 
+  .project-desc {
+    font-size: 0.875rem;
+    color: var(--gray-500);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1.25rem;
+  }
+ 
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
+  }
+ 
+  .project-tag {
+    padding: 0.2rem 0.6rem;
+    background: var(--gray-900);
+    border: 1px solid var(--gray-800);
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gray-500);
+    letter-spacing: 0.04em;
+  }
+ 
+  .project-links {
+    display: flex;
+    gap: 0.75rem;
+  }
+ 
+  .project-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--gray-400);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 0.2s;
+  }
+ 
+  .project-link:hover { color: var(--white); }
+ 
+  .project-link-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.6;
+  }
+ 
+  /* ── CV ── */
+  #cv {
+    background: var(--gray-950);
+    border-top: 1px solid var(--gray-800);
+  }
+ 
+  .cv-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 2.5rem;
+  }
+ 
+  .cv-text h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+ 
+  .cv-text p {
+    color: var(--gray-500);
+    font-weight: 300;
+    font-size: 0.975rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+ 
+  .cv-card {
+    background: var(--gray-900);
+    border: 1px solid var(--gray-800);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+ 
+  .cv-card-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--gray-800);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+ 
+  .cv-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+ 
+  .cv-card p {
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+ 
+  .cv-meta {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-800);
+  }
+ 
+  .cv-meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .cv-meta-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--gray-600); letter-spacing: 0.1em; text-transform: uppercase; }
+  .cv-meta-value { font-size: 0.85rem; color: var(--gray-300); font-weight: 500; }
+ 
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--gray-900);
+    padding: 2rem 0;
+    text-align: center;
+  }
+ 
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--gray-700);
+    letter-spacing: 0.05em;
+  }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    nav { padding: 0 1.25rem; }
+    .container { padding: 0 1.25rem; }
+    #about .about-grid,
+    .cv-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .repo-grid { grid-template-columns: 1fr; }
+    .project-card { grid-template-columns: 1fr; }
+    .project-visual { min-height: 140px; }
+    .hero-name { font-size: 2.8rem; }
+    .nav-links li:not(:last-child) { display: none; }
+  }
+
